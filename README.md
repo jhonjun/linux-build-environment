@@ -7,7 +7,7 @@ Note that a development environment is different from a build environment. I use
 
 A build environment is something else. It's the environment that you use to build the release version of the software that you want to produce.
 
-There's also a third environment: the environment where your software product is going to be used on or deployed to. e.g. RHEL 7 or CentOS 7.
+There's also a third environment: the environment where your software product is going to be used on or deployed to, e.g. RHEL 7 or CentOS 7.
 
 The focus of this article is the second item, the build environment.
 
