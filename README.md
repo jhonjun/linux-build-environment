@@ -12,4 +12,11 @@ There's also a third environment: the environment where your software product is
 The focus of this article is the second item, the build environment.
 
 ## Compatibility
-The main thing to understand about Linux binaries on userland is that everything is linked with glibc, the GNU C library.
+The main thing to understand about Linux binaries on userland is that everything is linked with glibc, the GNU C library. Other dependencies can be found here: http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/baselib.html.
+
+For C++, note here the important factor: https://gcc.gnu.org/onlinedocs/libstdc++/manual/using_dual_abi.html.
+
+Based on the information here: http://www.linux-m68k.org/faq/glibcinfo.html, since most Linux distros are now using glibc based on libc.so.6, and due to this breaking bug: https://lists.gnu.org/archive/html/info-gnu/2007-08/msg00001.html, I looked for a stable distro with long-term support that has at least glibc 2.6.1 and found that CentOS 6.x is the closest thing that fit the criteria.
+
+## Building the environment
+
