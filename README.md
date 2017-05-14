@@ -19,7 +19,7 @@ For C++, note here the important factor: https://gcc.gnu.org/onlinedocs/libstdc+
 Based on the information here: http://www.linux-m68k.org/faq/glibcinfo.html, since most Linux distros are now using glibc based on libc.so.6, and due to this breaking bug: https://lists.gnu.org/archive/html/info-gnu/2007-08/msg00001.html, I looked for a stable distro with long-term support that has at least glibc 2.6.1 and found that CentOS 6.x is the closest thing that fit the criteria.
 
 ## Building the environment
-Note: You may need sudo in some of the commands.
+Note: You may need sudo or switch to root in some of the commands.
 
 ```
 lxc-create -t download -n centos6
