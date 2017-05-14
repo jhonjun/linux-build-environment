@@ -49,5 +49,6 @@ mkdir build ; cd build
 
 make
 make install
-
 ```
+
+I have also chosen GCC 4.8.x as my base C++ compiler because it has the most complete C++11 support (https://gcc.gnu.org/gcc-4.8/cxx0x_status.html) before the new ABI was introduced in GCC 5.1.
