@@ -43,6 +43,7 @@ adduser builder
 passwd builder
 su - builder
 
+mkdir /usr/local/root/gcc
 cd /usr/local/src
 svn co svn://gcc.gnu.org/svn/gcc/tags/gcc_4_8_5_release gcc
 cd gcc
@@ -52,4 +53,9 @@ mkdir build ; cd build
 
 make
 make install
+
+export PATH=/usr/local/root/gcc/bin:$PATH
+export LIBRARY_PATH=/usr/local/root/gcc/lib64:/usr/lib64/:/lib64:/usr/local/lib64
+export LD_LIBRARY_PATH=$LIBRARY_PATH
+
 ```
