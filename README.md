@@ -41,9 +41,11 @@ yum install autoconf automake gettext gperf dejagnu guile flex texinfo texinfo-t
 
 adduser builder
 passwd builder
-su - builder
 
 mkdir /usr/local/root/gcc
+chown -R builder /usr/local
+su - builder
+
 cd /usr/local/src
 svn co svn://gcc.gnu.org/svn/gcc/tags/gcc_4_8_5_release gcc
 cd gcc
