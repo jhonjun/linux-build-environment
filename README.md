@@ -18,6 +18,8 @@ For C++, note here the important factor: https://gcc.gnu.org/onlinedocs/libstdc+
 
 Based on the information here: http://www.linux-m68k.org/faq/glibcinfo.html, since most Linux distros are now using glibc based on libc.so.6, and due to this breaking bug: https://lists.gnu.org/archive/html/info-gnu/2007-08/msg00001.html, I looked for a stable distro with long-term support that has at least glibc 2.6.1 and found that CentOS 6.x is the closest thing that fit the criteria.
 
+I have also chosen GCC 4.8.x as my base C++ compiler because it has the most complete C++11 support (https://gcc.gnu.org/gcc-4.8/cxx0x_status.html) before the new ABI was introduced in GCC 5.1.
+
 ## Building the environment
 Note: You may need sudo or switch to root in some of the commands.
 
@@ -50,5 +52,3 @@ mkdir build ; cd build
 make
 make install
 ```
-
-I have also chosen GCC 4.8.x as my base C++ compiler because it has the most complete C++11 support (https://gcc.gnu.org/gcc-4.8/cxx0x_status.html) before the new ABI was introduced in GCC 5.1.
