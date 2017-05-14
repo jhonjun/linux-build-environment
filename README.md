@@ -19,4 +19,35 @@ For C++, note here the important factor: https://gcc.gnu.org/onlinedocs/libstdc+
 Based on the information here: http://www.linux-m68k.org/faq/glibcinfo.html, since most Linux distros are now using glibc based on libc.so.6, and due to this breaking bug: https://lists.gnu.org/archive/html/info-gnu/2007-08/msg00001.html, I looked for a stable distro with long-term support that has at least glibc 2.6.1 and found that CentOS 6.x is the closest thing that fit the criteria.
 
 ## Building the environment
+Note: You may need sudo in some of the commands.
 
+```
+lxc-create -t download -n centos6
+mount --bind /dev /home/jjd/.local/share/lxc/centos6/rootfs/dev
+mount --bind /dev/pts /home/jjd/.local/share/lxc/centos6/rootfs/dev/pts
+mount --bind /proc /home/jjd/.local/share/lxc/centos6/rootfs/proc
+
+chroot /home/jjd/.local/share/lxc/centos6/rootfs
+
+yum install epel-release
+yum install which tar perl
+
+yum install gcc-c++ zlib-devel
+yum install gmp-devel mpfr-devel libmpc-devel cloog-ppl-devel
+yum install autoconf automake gettext gperf dejagnu guile flex texinfo texinfo-tex subversion patch
+
+adduser builder
+passwd builder
+su - builder
+
+cd /usr/local/src
+svn co svn://gcc.gnu.org/svn/gcc/tags/gcc_4_8_5_release gcc
+cd gcc
+mkdir build ; cd build
+
+../configure --prefix=/usr/local/root/gcc --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++ --enable-plugin --enable-initfini-array --disable-libgcj --enable-gnu-indirect-function --with-tune=generic --disable-multilib
+
+make
+make install
+
+```
