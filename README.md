@@ -30,6 +30,7 @@ mount --bind /dev/pts /home/jjd/.local/share/lxc/centos6/rootfs/dev/pts
 mount --bind /proc /home/jjd/.local/share/lxc/centos6/rootfs/proc
 
 chroot /home/jjd/.local/share/lxc/centos6/rootfs
+passwd
 
 yum install epel-release
 yum install which tar perl
