@@ -57,7 +57,7 @@ make
 make install
 
 export PATH=/usr/local/root/gcc/bin:$PATH
-export LIBRARY_PATH=/usr/local/root/gcc/lib64:/usr/lib64/:/lib64:/usr/local/lib64
+export LIBRARY_PATH=/usr/local/root/gcc/lib64:/usr/lib64:/lib64:/usr/local/lib64
 export LD_LIBRARY_PATH=$LIBRARY_PATH
 
 ```
