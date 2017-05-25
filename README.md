@@ -61,3 +61,11 @@ export LIBRARY_PATH=/usr/local/root/gcc/lib64:/usr/lib64:/lib64:/usr/local/lib64
 export LD_LIBRARY_PATH=$LIBRARY_PATH
 
 ```
+
+## Maintaining Binary Compatibility in the Future when Using C++
+At some point in time, depending on your distro and your priorities, your C++ binary will break compatibility. Details can be found here: https://developers.redhat.com/blog/2015/02/05/gcc5-and-the-c11-abi/.
+
+If your target environment was built with the new ABI (and GCC 5 and above), you will need to declare -D_GLIBCXX_USE_CXX11_ABI in your build. Otherwise, if your priority is supporting *older* targets, build with -D_GLIBCXX_USE_CXX11_ABI=0 flag.
+
+## Using Clang in lieu of GCC
+To maintain 100% binary compatibility, use GNU's C++ library (libstdc++.so.6) that comes with GCC. You can force clang++ to do this by passing the -stdlib=libstdc++ flag.
