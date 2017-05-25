@@ -95,7 +95,7 @@ mkdir clang-build
 cd clang-build
 
 yum install python34
-# update the python symbolic link to point to python3
+# Update the python symbolic link to point to python3
 
 CC=`which gcc` CXX=`which g++` cmake -DCMAKE_INSTALL_PREFIX=/usr/local/root/clang -DLLVM_ENABLE_PROJECTS=clang -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_BUILD_TYPE=Release ../llvm
 
@@ -103,4 +103,5 @@ make
 make install
 
 # Add /usr/local/root/clang/bin to your PATH
+# Revert the python symbolic link back to python2
 ```
