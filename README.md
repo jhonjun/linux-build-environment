@@ -69,3 +69,38 @@ If your target environment was built with the new ABI (and GCC 5 and above), you
 
 ## Using Clang in lieu of GCC
 To maintain 100% binary compatibility, use GNU's C++ library (libstdc++.so.6) that comes with GCC. You can force clang++ to do this by passing the -stdlib=libstdc++ flag.
+
+## Bonus: Building Clang
+
+```
+git clone https://github.com/llvm-mirror/llvm.git
+git clone https://github.com/llvm-mirror/clang.git
+git clone https://github.com/llvm-mirror/clang-tools-extra.git
+
+cd llvm
+git checkout release_39
+cd ../clang
+git checkout release_39
+cd ../clang-tools-extra
+git checkout release_39
+
+cd llvm/tools
+ln -s ../../clang .
+cd ../..
+cd clang/tools
+ln -s ../../clang-tools-extra extra
+cd ../..
+
+mkdir clang-build
+cd clang-build
+
+yum install python34
+# update the python symbolic link to point to python3
+
+CC=`which gcc` CXX=`which g++` cmake -DCMAKE_INSTALL_PREFIX=/usr/local/root/clang -DLLVM_ENABLE_PROJECTS=clang -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_BUILD_TYPE=Release ../llvm
+
+make
+make install
+
+# Add /usr/local/root/clang/bin to your PATH
+```
