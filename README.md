@@ -71,6 +71,9 @@ If your target environment was built with the new ABI (and GCC 5 and above), you
 To maintain 100% binary compatibility, use GNU's C++ library (libstdc++.so.6) that comes with GCC. You can force clang++ to do this by passing the -stdlib=libstdc++ flag.
 
 ## Bonus: Building Clang
+If your distro doesn't come with the version of Clang that you prefer and you want to build it yourself, here's how you can do it.
+
+This doesn't include Clang's C++ Standard Library (libc++) to maintain binary compatibility with GCC.
 
 ```
 git clone https://github.com/llvm-mirror/llvm.git
